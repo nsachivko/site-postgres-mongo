@@ -1,0 +1,32 @@
+<form method="post" action="/register">
+    {{#if this.errorMessage}}
+    <div class="alert alert-dismissible alert-danger" style="display: {{data.display}};">
+        <strong>{{errorMessage}}</strong>
+    </div>
+    {{/if}}
+    <div class="form-group w-25">
+        <label class="form-label mt-4">First name</label>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="firstName" name="firstName" value="{{data.firstName}}">
+        </div>
+        <label class="form-label mt-4">Last name</label>
+        <div class="form-floating">
+            <input type="text" class="form-control" id="lastName" name="lastName" value="{{data.lastName}}">
+        </div>
+        <label class="form-label mt-4">Email</label>
+        <div class="form-floating">
+            <input type="email" class="form-control" id="email" name="email" value="{{data.email}}">
+        </div>
+        <label class="form-label mt-4">Password</label>
+        <div class="form-floating">
+            <input type="password" class="form-control" id="password" name="password">
+        </div>
+        <label class="form-label mt-4">Re-enter Password</label>
+        <div class="form-floating">
+            <input type="password" class="form-control" id="password2" name="password2">
+        </div>
+    </div>
+    <div class="mt-5">
+        <button type="submit" class="btn btn-outline-success">Submit</button>
+    </div>
+</form>

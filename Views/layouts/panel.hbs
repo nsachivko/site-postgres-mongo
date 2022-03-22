@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Latest compiled and minified Bootstrap 3.3.7 CSS -->
+    <link rel="stylesheet" href="/bootstrapthemes/bootstrap.css">
+    <script src="/bootstrapjs/bootstrap.min.js">
+    </script>
+    <title>Home</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid px-5">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02"
+                aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse position-relative col px-md-5" id="navbarColor02">
+                <ul class="navbar-nav me-auto">
+                    {{#navLink "/"}}Home{{/navLink}}
+                    {{#if session.user}}
+                    {{#navLink "/myPosts"}}myPosts{{/navLink}}
+                    {{#navLink "/createPost"}}Create Post{{/navLink}}
+                    {{#navLink "/generatePDF"}}Generate .pdf{{/navLink}}
+                    <div class="position-absolute top-0 end-0 col px-md-5">
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="/logout">Logout</a>
+                        </li>
+                    </div>
+                    {{else}}
+                    <div class="position-absolute top-0 end-0 col px-md-5 d-flex">
+                        {{#navLink "/login"}}Login{{/navLink}}
+                        {{#navLink "/register"}}Register{{/navLink}}
+                    </div>
+                    {{/if}}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        {{{body}}}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+    <script src="js/bootstrap.js"></script>
+</body>
+
+</html>
